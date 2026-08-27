@@ -39,8 +39,10 @@
 
   <link rel="stylesheet" href="/assets/site.css">
 
+  {% if site.preferredSources %}
   <!-- Google Preferred Sources button (official library). -->
   <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+  {% endif %}
 
   {% if jsonldFile %}{% include "jsonld/" + jsonldFile + ".njk" %}{% endif %}
 </head>
