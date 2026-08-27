@@ -1,0 +1,22 @@
+---
+layout: base.njk
+permalink: /404.html
+title: "Page Not Found | CopyByKaine"
+description: "That page has moved or never existed. Head back to the homepage or book a discovery call."
+robots: "noindex, follow"
+sitemap: false
+eleventyExcludeFromCollections: true
+---
+<section id="hero" style="min-height:60vh;display:flex;align-items:center;">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-tag"><span class="dot"></span> Error 404</span>
+      <h1 class="hero-title" style="font-size:clamp(52px,12vw,96px);">Nothing Here.</h1>
+      <p class="hero-sub">That page has moved or never existed. No bother. Let's get you back to work.</p>
+      <div class="hero-ctas">
+        <a href="/" class="btn btn-amber">Back To Homepage</a>
+        <a href="{{ site.booking }}" class="btn btn-ghost" target="_blank" rel="noopener">Book a Discovery Call</a>
+      </div>
+    </div>
+  </div>
+</section>

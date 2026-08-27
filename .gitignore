@@ -1,0 +1,12 @@
+# dependencies
+node_modules/
+
+# eleventy build output
+_site/
+
+# os
+.DS_Store
+**/.DS_Store
+
+# logs
+npm-debug.log*

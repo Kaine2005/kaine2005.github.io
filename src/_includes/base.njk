@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="author" content="{{ site.author }}">
+  <meta name="robots" content="{{ robots or 'index, follow' }}">
+  <link rel="canonical" href="{{ canonical or (site.url + page.url) }}">
+
+  <meta name="geo.region" content="GB-SCT">
+  <meta name="geo.placename" content="Scotland">
+
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:url" content="{{ canonical or (site.url + page.url) }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ ogTitle or title }}">
+  <meta property="og:description" content="{{ ogDescription or description }}">
+  <meta property="og:image" content="{{ site.url + (ogImage or site.defaultOgImage) }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ ogImageAlt or 'CopyByKaine, Facebook lead generation for trades across Scotland' }}">
+  <meta property="og:locale" content="en_GB">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ ogTitle or title }}">
+  <meta name="twitter:description" content="{{ twitterDescription or ogDescription or description }}">
+  <meta name="twitter:image" content="{{ site.url + (ogImage or site.defaultOgImage) }}">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#0D0D0D">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/site.css">
+
+  <!-- Google Preferred Sources button (official library). -->
+  <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+
+  {% if jsonldFile %}{% include "jsonld/" + jsonldFile + ".njk" %}{% endif %}
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo">Copy<span>By</span>Kaine</a>
+      <ul class="nav-links">
+        <li><a href="/#process">How It Works</a></li>
+        <li><a href="/#results">Results</a></li>
+        <li><a href="/#reviews">Reviews</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="{{ site.booking }}" class="btn btn-amber" target="_blank" rel="noopener">Book a Call</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/#process" onclick="closeMenu()">How It Works</a>
+    <a href="/#results" onclick="closeMenu()">Results</a>
+    <a href="/#reviews" onclick="closeMenu()">Reviews</a>
+    <a href="/#faq" onclick="closeMenu()">FAQ</a>
+    <a href="{{ site.booking }}" class="btn btn-amber" target="_blank" rel="noopener">Book a Discovery Call</a>
+  </div>
+</header>
+
+{{ content | safe }}
+
+<!-- STICKY MOBILE CTA -->
+<div class="mobile-cta">
+  <a href="{{ site.booking }}" class="btn btn-amber" target="_blank" rel="noopener">Book a Discovery Call</a>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    const open = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.faq-q.open').forEach(openBtn => {
+      openBtn.classList.remove('open');
+      openBtn.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+  }
+  window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+</script>
+{% if ghlEmbed %}<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>{% endif %}
+</body>
+</html>

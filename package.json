@@ -1,0 +1,16 @@
+{
+  "name": "copybykaine-site",
+  "version": "1.0.0",
+  "description": "CopyByKaine - Facebook lead generation for trades across Scotland",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

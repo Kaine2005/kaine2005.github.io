@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://copybykaine.com/sitemap.xml
