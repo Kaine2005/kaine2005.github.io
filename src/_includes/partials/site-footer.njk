@@ -1,0 +1,12 @@
+<footer class="site-footer">
+  <div class="container">
+    {% include "partials/footer-sitemap.njk" %}
+    <div class="footer-areas">Facebook lead generation &amp; websites for trades across Scotland: Edinburgh · Glasgow · Renfrewshire · Lanarkshire · West Lothian &amp; beyond.</div>
+    {% if site.preferredSources %}
+    <div class="pref-source">
+      <div google-add-preferred-source-btn data-theme="dark" data-lang="en"></div>
+    </div>
+    {% endif %}
+    <div class="footer-bottom">© {{ site.buildYear }} CopyByKaine · Lead Generation for the Trades</div>
+  </div>
+</footer>

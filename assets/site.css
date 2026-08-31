@@ -553,3 +553,116 @@ section { padding: 72px 0; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* ============================================================
+   SUB-PAGE COMPONENTS (services, industries, case studies, guides)
+   Reuses the homepage brand tokens and components above.
+   ============================================================ */
+
+/* ---------- Sub-page hero ---------- */
+.subhero {
+  padding: 52px 0 10px;
+  background:
+    radial-gradient(ellipse 70% 55% at 75% -10%, rgba(232,160,25,0.14) 0%, transparent 60%),
+    var(--black);
+}
+.subhero .container { position: relative; }
+.subhero h1 {
+  font-size: clamp(40px, 7.5vw, 72px);
+  line-height: 0.96;
+  margin-bottom: 18px;
+  max-width: 900px;
+  text-wrap: balance;
+}
+.subhero h1 .amber { color: var(--amber); }
+.subhero .lede { font-size: 17px; max-width: 660px; }
+.subhero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+@media (max-width: 560px) { .subhero-ctas { flex-direction: column; } .subhero-ctas .btn { width: 100%; } }
+
+/* ---------- Breadcrumbs ---------- */
+.breadcrumbs {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--muted); margin-bottom: 20px;
+}
+.breadcrumbs a:hover { color: var(--amber); }
+.breadcrumbs .sep { color: #555; }
+.breadcrumbs [aria-current="page"] { color: #777; }
+
+/* ---------- Prose / article body ---------- */
+.prose { max-width: 760px; }
+.prose > p { color: var(--muted); font-size: 16px; line-height: 1.8; margin-bottom: 18px; }
+.prose h2 { font-size: clamp(28px, 4.4vw, 42px); line-height: 1.0; margin: 46px 0 16px; }
+.prose h3 { font-size: 23px; letter-spacing: 0.02em; margin: 30px 0 10px; }
+.prose strong { color: #fff; font-weight: 700; }
+.prose ul, .prose ol { color: var(--muted); margin: 0 0 20px 20px; line-height: 1.8; font-size: 16px; }
+.prose li { margin-bottom: 8px; }
+.prose a { color: var(--amber); }
+.prose a:hover { text-decoration: underline; }
+.prose .lede { color: var(--muted); font-size: 18px; line-height: 1.75; margin-bottom: 22px; max-width: 760px; }
+.updated { font-size: 13px; color: #777; margin-bottom: 26px; }
+
+/* ---------- Two-column split ---------- */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
+@media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 30px; } }
+
+/* ---------- Who it's for / not for ---------- */
+.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 24px 0; }
+@media (max-width: 700px) { .who-grid { grid-template-columns: 1fr; } }
+.who-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 26px; }
+.who-card h3 { font-size: 23px; margin-bottom: 14px; }
+.who-card ul { list-style: none; margin: 0; }
+.who-card li { color: var(--muted); font-size: 14.5px; line-height: 1.5; padding: 9px 0 9px 28px; position: relative; }
+.who-yes li::before { content: '✓'; position: absolute; left: 0; color: var(--amber); font-weight: 800; }
+.who-no li::before { content: '✕'; position: absolute; left: 0; color: #666; font-weight: 800; }
+
+/* ---------- Detailed numbered steps ---------- */
+.dsteps { display: flex; flex-direction: column; gap: 16px; margin: 26px 0; }
+.dstep { display: grid; grid-template-columns: 54px 1fr; gap: 18px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px 26px; }
+.dstep-n { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--amber); line-height: 1; }
+.dstep h3 { font-size: 23px; margin: 0 0 7px; }
+.dstep p { color: var(--muted); font-size: 14.5px; line-height: 1.65; margin: 0; }
+
+/* ---------- Callout ---------- */
+.callout { border: 1px solid rgba(232,160,25,0.28); background: linear-gradient(180deg, rgba(232,160,25,0.06), rgba(232,160,25,0) 90%); border-radius: 12px; padding: 24px 26px; margin: 26px 0; }
+.callout p { color: #d8d8d8; margin: 0; font-size: 15.5px; line-height: 1.7; }
+.callout strong { color: #fff; }
+
+/* ---------- Stat row (case studies; real numbers only) ---------- */
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 26px 0; }
+.stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 20px; }
+.stat-n { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--amber); line-height: 1; margin-bottom: 6px; }
+.stat-l { color: var(--muted); font-size: 13px; line-height: 1.4; }
+
+/* ---------- Related links (internal linking) ---------- */
+.related { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 10px 0; }
+@media (max-width: 760px) { .related { grid-template-columns: 1fr; } }
+.related a { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; transition: border-color 0.2s, transform 0.2s; }
+.related a:hover { border-color: rgba(232,160,25,0.5); transform: translateY(-3px); }
+.related .r-k { font-family: 'Bebas Neue', sans-serif; color: var(--amber); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
+.related .r-t { font-size: 16px; font-weight: 700; margin-top: 6px; line-height: 1.3; }
+
+/* ---------- Booking CTA band (shared component, ends every sub-page) ---------- */
+.cta-band { border-top: 1px solid var(--border); background: var(--panel); }
+.cta-band-inner { text-align: center; max-width: 640px; margin: 0 auto; }
+.cta-band h2 { font-size: clamp(36px, 6.5vw, 60px); line-height: 0.96; margin-bottom: 14px; }
+.cta-band p { color: var(--muted); font-size: 16.5px; line-height: 1.7; margin-bottom: 28px; }
+.cta-band .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+@media (max-width: 520px) { .cta-band .btns { flex-direction: column; } .cta-band .btns .btn { width: 100%; } }
+
+/* ---------- Shared site footer (sub-pages) + sitemap block ---------- */
+.footer-sitemap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 28px 24px;
+}
+.fs-col { display: flex; flex-direction: column; gap: 11px; }
+.fs-head { font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 0.08em; color: #fff; text-transform: uppercase; margin-bottom: 3px; }
+.fs-col a { color: var(--muted); font-size: 14px; }
+.fs-col a:hover { color: var(--amber); }
+
+.site-footer { background: var(--panel); border-top: 1px solid var(--border); padding: 54px 0 36px; }
+.site-footer .footer-areas { margin-top: 40px; }
+.site-footer .footer-bottom { margin-top: 22px; }
+
+/* Homepage footer sitemap sits inside the existing #cta block */
+#cta .footer-sitemap { margin-top: 44px; padding-top: 40px; border-top: 1px solid var(--border); text-align: left; }
