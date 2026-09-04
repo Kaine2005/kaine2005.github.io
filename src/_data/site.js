@@ -13,5 +13,5 @@ export default {
   // Google Preferred Sources button. Off until the site is eligible (needs
   // guides/content live). Flip to true once copybykaine.com shows up at
   // https://www.google.com/preferences/source , then rebuild.
-  preferredSources: false,
+  preferredSources: true,
 };
