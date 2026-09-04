@@ -7,6 +7,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("kaine-photo.jpg");
   eleventyConfig.addPassthroughCopy("og-image.jpg");
   eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy("CNAME");
   // Preserve the existing /privacy.html URL exactly (standalone, self-styled page).
   eleventyConfig.addPassthroughCopy("privacy.html");
 
