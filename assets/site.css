@@ -516,7 +516,10 @@ section { padding: 72px 0; }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid var(--border);
+  transform: translateY(110%);
+  transition: transform 0.28s ease;
 }
+.mobile-cta.show { transform: translateY(0); }
 .mobile-cta .btn { width: 100%; padding: 15px; }
 
 /* ---------- Responsive ---------- */

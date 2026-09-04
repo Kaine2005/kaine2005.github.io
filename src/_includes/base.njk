@@ -110,6 +110,22 @@
     if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
   }
   window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+
+  // Sticky mobile CTA: stay hidden until the visitor scrolls past the top CTAs,
+  // so it doesn't overlap the hero buttons on first load.
+  (function() {
+    var bar = document.querySelector('.mobile-cta');
+    if (!bar) return;
+    var anchor = document.querySelector('.hero-ctas, .subhero-ctas');
+    function update() {
+      if (!anchor) { bar.classList.add('show'); return; }
+      // Show only once the top CTAs have fully scrolled above the viewport.
+      bar.classList.toggle('show', anchor.getBoundingClientRect().bottom < 0);
+    }
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  })();
 </script>
 {% if ghlEmbed %}<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>{% endif %}
 </body>
